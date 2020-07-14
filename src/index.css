@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
+body {
+  margin: 0;
+  background: #eee;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 75px;
+  margin: auto;
+  margin-top: 25px;
+}
+
+header .logo
+{
+  font-size: 16pt;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+}
+
+header .menu
+{
+  background:white;
+  border-radius: 15px;
+  padding: 20px 50px;
+}
+
+header .menu ul
+{
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header .menu ul li:not(:last-child){
+  margin-right: 50px;
+}
+header .menu ul li 
+{
+  font-size: 14pt;
+  font-family: 'Exo 2', sans-serif;
+  list-style: none;
+}
+header .menu ul li a{
+  color: black;
+  text-decoration: none;
+}
+
+main{
+  width: 80%;
+  margin: auto;
+  margin-top: 25px;
+}
+main .title
+{
+  font-size: 24pt;
+  font-family: 'Exo 2', cursive;
+}
+main .title_error
+{
+  font-size: 32pt;
+  font-family: 'Exo 2', cursive;
+  text-align: center;
+}
+main .not_found
+{
+  display:grid;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:30%;
+}
+main .not_found h1
+{
+  font-size: 172pt;
+  font-family: 'Exo 2', cursive;
+  text-align:center;
+  margin-bottom:25px;
+}
+main .not_found p
+{
+  font-size: 46pt;
+  font-family: 'Exo 2', cursive;
+  text-align:center;
+}
+main .not_found a
+{
+  font-size: 24pt;
+  font-family: 'Exo 2', cursive;
+  text-align:center;
+  padding:10px 25px;
+  border-radius:15px;
+  border: 2px solid black;
+  text-decoration:none;
+  color:black;
+}
+
+main .cards
+{
+  display:grid;
+  justify-content:center;
+  margin:auto;
+  width:80%;
+}
+
+main .cards .card
+{
+  background:white;
+  border-radius:15px;
+  padding:10px 25px;
+  margin:25px 0px;
+}
+main .cards .card h1
+{
+  font-size:16pt;
+  font-family: 'Exo 2', cursive;
+}
+main .cards .card p
+{
+  font-size:14pt;
+  font-family: 'Exo 2', cursive;
+}
+main .cards .card .btns
+{
+  display:flex;
+  float:right;
+  width: 150px;
+    justify-content: space-between;
+}
+main .cards .card .btns button
+{
+  border:none;
+  background:transparent;
+  outline: none;
+}
+main .cards .card .btns button svg
+{
+  font-size:20pt;
+}
+.Notification
+{
+  background:white;
+  border-radius:15px;
+  padding: 10px 15px;
+  font-size: 8pt;
+  z-index: 5;
+  width: 300px;
+  float: right;
+  right: -400px;
+  position: absolute;
+  animation: anim_notif  2.5s infinite ;
+}
+
+@keyframes anim_notif {
+  from {  right: -400px;  }
+50% {right: 0px;}
+  to {  right: -400px;
+        display:none;}
+  }
