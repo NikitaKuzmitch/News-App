@@ -6,36 +6,38 @@ class Like extends React.Component {
     constructor(){
         super();
         this.state=({
-            news: [],
-            error:null,
-        });
-        this.NewsList();
+            news: []
+        })
     }
     
-    NewsList = async (e) => {
-        await fetch("https://coolskill.ru/newsapp/app.php?type=newslist")
-        .then((response)=>response.json())
-        .then((responseJson)=>
+    componentDidMount = async (e) => {
+        // получаем список новостей
+        const newsdb = JSON.parse(localStorage.getItem('News'));
+        //создам архив
+        let likenews = [];
+        // полуаем список избранных новостей
+        var listlike= JSON.parse(localStorage.getItem('LikeNews')); 
+        if(listlike !== null)
         {
-            this.setState({
-                news: responseJson
-            });
-        },
-        (error) => {
-            this.setState({
-            error
-            });
+            // записываем в массив избранные новости
+            listlike.map((row)=>{
+
+                var news = newsdb.find(news => news.id === row);
+                    likenews.push(news);
+            })
+
+        this.setState({ news:likenews });
         }
-        )
-    }
+      }
 
     render() {
-        if(this.state.error)
+        if(this.state.news.length === 0)
         {
             return  (
                 <main>
-                    <h1>
-                        Ошибка: {this.state.error}
+                     <h1 className="title">Избранные</h1>
+                    <h1 className="title_error">
+                        Список пуст
                     </h1>
                 </main>
             );
