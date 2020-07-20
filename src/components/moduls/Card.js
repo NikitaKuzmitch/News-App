@@ -11,7 +11,7 @@ const Card = (props) =>{
                 return (
                     <div className="card" key={row.id}>
                         <h1>{row.title}</h1>
-                        <p>{row.text.substring(0,300) + '...'}</p>
+                        <p>{row.text }</p>
                         <div className="btns">   
                         {
                           

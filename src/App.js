@@ -15,10 +15,6 @@ class App extends React.Component {
 
   constructor(){
     super();
-    this.state=({
-        news: [],
-        error:null
-    });
     this.CreateDB();
   } 
 
@@ -46,7 +42,7 @@ class App extends React.Component {
 
     // 1 вариант работы программы
     // работает с json файлом, который находится в папке components
-    if(!archlistdb)
+    if(!newslistdb)
     {
       let arr = [];
       arr = db;
@@ -64,7 +60,7 @@ class App extends React.Component {
     // 2 вариант работы программы
     // данные берутся при помощи ajax запроса на сайт, который находится на хостинге
     // php возвращает массив данных 
-    // if(!archlistdb)
+    // if(!newslistdb)
     // {
     //   let arr = [];
     // fetch("https://coolskill.ru/newsapp/app.php?type=newslist")
@@ -86,6 +82,37 @@ class App extends React.Component {
     //     let newslist = JSON.parse(localStorage.getItem('News'));
     //     this.setState({news: newslist})
     //   }
+
+    //3 вариант
+    // С исользованием API сайта 
+    // if(!newslistdb)
+    //  {
+ 
+    //     let arr = [];
+    //     let massresponse = [];
+    //     fetch("http://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=f9957a34c5304ef9bba13a864a37d2c1")
+    //     .then((response)=>response.json())
+    //     .then((responseJson)=>
+    //     {
+          
+    //      for(var i = 0; i<10; i++ )
+    //      {
+    //         arr.push({"id": i+1, "title": responseJson.articles[i].title, "text": responseJson.articles[i].description });
+    //      }         
+    //           localStorage.setItem('News', JSON.stringify(arr));
+    //           },
+    //           (error) => {
+    //               this.setState({
+    //               error
+    //               });
+    //           }
+    //           )
+    //       }
+        
+    //       else{
+    //         let newslist = JSON.parse(localStorage.getItem('News'));
+    //         this.setState({news: newslist})
+    //       }
   }
 
 

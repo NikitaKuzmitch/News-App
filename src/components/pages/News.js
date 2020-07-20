@@ -9,14 +9,19 @@ class News extends React.Component {
         this.state=({
             news: [],
             Notific: false,
-            message: ""
+            message: "",
+            load: false
         })
+
+        this.componentDidMount();
     }
     
     componentDidMount = async (e) => {
-        //получаем лист новостей и записываем в state
-        const newsdb = JSON.parse(localStorage.getItem('News'));
-        this.setState({ news:newsdb });
+        
+        setTimeout(() => { 
+            //получаем лист новостей и записываем в state
+            const newsdb = JSON.parse(localStorage.getItem('News'));   
+            this.setState({ news:newsdb, load: true })}, 1000);
       }
 
       NotificMeth = async (mess) =>
@@ -229,7 +234,19 @@ class News extends React.Component {
       }
 
     render() {
-        if(this.state.error)
+        if(!this.state.load)
+        {
+            return  (
+                <main>
+                    <h1>
+                       Загрузка
+                    </h1>
+                </main>
+            );
+        }
+        else 
+        {
+     if(this.state.error)
         {
             return  (
                 <main>
@@ -239,7 +256,7 @@ class News extends React.Component {
                 </main>
             );
         }
-        else if(this.state.news.length === 0)
+        else if(this.state.news.length === 0 )
         {
             return  (
                 <main>
@@ -273,6 +290,7 @@ class News extends React.Component {
             );       
                    
         }  
+        }
     }
 }
 
